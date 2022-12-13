@@ -1,0 +1,51 @@
+# Copyright 2021 Google LLC
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     https://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+from typing import Dict, Any, List
+
+from uploaders import utils
+from uploaders.google_ads.customer_match.abstract_uploader import GoogleAdsCustomerMatchAbstractUploaderDoFn
+from models.execution import DestinationType, AccountConfig
+
+
+class GoogleAdsCustomerMatchUserIdUploaderDoFn(
+    GoogleAdsCustomerMatchAbstractUploaderDoFn):
+
+  def get_list_definition(
+      self,
+      account_config: AccountConfig,
+      destination_metadata: List[str]) -> Dict[str, Any]:
+    list_name = destination_metadata[0]
+    # Defines the list's lifespan to unlimited
+    life_span = 10000
+    
+    # Overwrites lifespan value if any
+    if len(destination_metadata) >=6 and destination_metadata[5]:
+        life_span = int(destination_metadata[5])
+
+    return {
+      'membership_status': 'OPEN',
+      'name': list_name,
+      'description': 'List created automatically by Megalista',
+      'membership_life_span': life_span,
+      'crm_based_user_list': {
+        'upload_key_type': 'CRM_ID',
+        'data_source_type': 'FIRST_PARTY',
+      }
+    }
+
+  def get_row_keys(self) -> List[str]:
+    return ['third_party_user_id']
+
+  def get_action_type(self) -> DestinationType:
+    return DestinationType.ADS_CUSTOMER_MATCH_USER_ID_UPLOAD

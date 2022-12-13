@@ -1,0 +1,92 @@
+{
+    "name": "Megalista",
+    "description": "Data integration automation solution",
+    "parameters": [
+        {
+            "name": "developer_token",
+            "label": "Google Ads Developer Token",
+            "help_text": "Google Ads Developer Token",
+            "is_optional": "true"
+        },
+        {
+            "name": "client_id",
+            "label": "Client Id for the Google APIs",
+            "help_text": "Client Id for the Google APIs"
+        },
+        {
+            "name": "client_secret",
+            "label": "Client Secret for the Google APIs",
+            "help_text": "Client Secret for the Google APIs"
+        },
+        {
+            "name": "access_token",
+            "label": "Access Token for the Google APIs",
+            "help_text": "Access Token for the Google APIs"
+        },
+        {
+            "name": "refresh_token",
+            "label": "Refresh Token for the Google APIs",
+            "help_text": "Refresh Token for the Google APIs"
+        },
+        {
+            "name": "setup_sheet_id",
+            "label": "Google Sheets id for config",
+            "help_text": "Google Sheets id for config. Use only for Google Sheets parametrization.",
+            "is_optional": "true"
+        },
+        {
+            "name": "setup_json_url",
+            "label": "URL for JSON config file",
+            "help_text": "URL for JSON config file. Use only for JSON parametrization.",
+            "is_optional": "true"
+        },
+        {
+            "name": "setup_firestore_collection",
+            "label": "Collection name for Firestore config",
+            "help_text": "Collection name for Firestore config. Use only for Firestore parametrization.",
+            "is_optional": "true"
+        },
+        {
+            "name": "setup_firestore_collection",
+            "label": "Collection name for Firestore config",
+            "help_text": "Collection name for Firestore config. Use only for Firestore parametrization.",
+            "is_optional": "true"
+        },
+        {
+            "name": "bq_ops_dataset",
+            "label": "Auxiliary bigquery dataset used for Megalista operations",
+            "help_text": "Auxiliary bigquery dataset used for Megalista operations",
+            "is_optional": "true"
+        },
+        {
+            "name": "appsflyer_dev_key",
+            "label": "Developer key for AppsFlyer S2S API",
+            "help_text": "Developer key for AppsFlyer S2S API",
+            "is_optional": "true"
+        },
+        {
+            "name": "notify_errors_by_email",
+            "label": "Should send errors by email. True or False",
+            "help_text": "Should send errors by email. True or False",
+            "is_optional": "true"
+        },
+        {
+            "name": "errors_destination_emails",
+            "label": "Emails for sending errors separated by comma",
+            "help_text": "Emails for sending errors separated by comma",
+            "is_optional": "true"
+        },
+        {
+            "name": "bq_location",
+            "label": "Location/Region of the BQ source",
+            "help_text": "Location of Megalista operations (E.g. us-central1)",
+            "is_optional": "true"
+        },
+        {
+            "name": "show_code_lines_in_log",
+            "label": "Should show code lines in log messages?",
+            "help_text": "Should show code lines in log messages? True or False",
+            "is_optional": "true"
+        }
+    ]
+}
